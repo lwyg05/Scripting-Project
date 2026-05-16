@@ -1,5 +1,3 @@
-%%writefile cli.py
-
 from product import create_product
 from inventory import add_product, list_all_products
 from transactions import recordsale, viewtransactions
