@@ -1,9 +1,5 @@
-import importlib
 import analytics
 import transactions
-
-importlib.reload(analytics)
-importlib.reload(transactions)
 
 from analytics import (
     calculatemean, calculatemedian, calculatemode,
@@ -15,23 +11,18 @@ from transactions import recordsale, viewtransactions, savetransactionstocsv, lo
 from product import create_product
 from inventory import add_product
 
-
-
 print("=== Testing analytics.py ===\n")
-
-print("Mean of [10, 20, 30]:", calculatemean([10, 20, 30]))           
-print("Median of [1, 3, 2]:", calculatemedian([1, 3, 2]))            
-print("Median of [1, 2, 3, 4]:", calculatemedian([1, 2, 3, 4]))      
-print("Mode of [1, 2, 2, 3]:", calculatemode([1, 2, 2, 3]))          
-print("Variance of [2,4,4,4,5,5,7,9]:", calculatevariance([2,4,4,4,5,5,7,9]))  
-print("Std Dev of [2,4,4,4,5,5,7,9]:", calculatestddeviation([2,4,4,4,5,5,7,9]))  
-print("Correlation of [1,2,3] and [4,5,6]:", calculatecorrelation([1,2,3],[4,5,6]))  
-print("Moving Average [1,2,3,4,5] window=3:", calculatemovingaverage([1,2,3,4,5], 3))  
-print("Empty list mean:", calculatemean([]))  
-
+print("Mean of [10, 20, 30]:", calculatemean([10, 20, 30]))
+print("Median of [1, 3, 2]:", calculatemedian([1, 3, 2]))
+print("Median of [1, 2, 3, 4]:", calculatemedian([1, 2, 3, 4]))
+print("Mode of [1, 2, 2, 3]:", calculatemode([1, 2, 2, 3]))
+print("Variance of [2,4,4,4,5,5,7,9]:", calculatevariance([2,4,4,4,5,5,7,9]))
+print("Std Dev of [2,4,4,4,5,5,7,9]:", calculatestddeviation([2,4,4,4,5,5,7,9]))
+print("Correlation of [1,2,3] and [4,5,6]:", calculatecorrelation([1,2,3],[4,5,6]))
+print("Moving Average [1,2,3,4,5] window=3:", calculatemovingaverage([1,2,3,4,5], 3))
+print("Empty list mean:", calculatemean([]))
 
 print("\n=== Testing transactions.py ===\n")
-
 inventory = []
 transactions_list = []
 
@@ -42,14 +33,12 @@ add_product(inventory, p2)
 
 print("--- Recording a valid sale ---")
 recordsale(inventory, transactions_list, "P001", 2)
-
-
 for item in inventory:
     if item["id"] == "P001":
-        print(f"P001 stock after sale: {item['quantity']}")  
+        print(f"P001 stock after sale: {item['quantity']}")
 
 print("\n--- Attempting sale with insufficient stock ---")
-recordsale(inventory, transactions_list, "P002", 10)  
+recordsale(inventory, transactions_list, "P002", 10)
 
 print("\n--- Attempting sale with invalid product ID ---")
 recordsale(inventory, transactions_list, "P999", 1)
