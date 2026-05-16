@@ -1,6 +1,3 @@
-%%writefile inventory.py
-
-
 import csv
 from product import display_product
 
