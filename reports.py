@@ -1,5 +1,3 @@
-%%writefile reports.py
-
 def inventory_summary(inventory):
 
     print("\n=== Inventory Summary ===")
