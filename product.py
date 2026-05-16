@@ -1,4 +1,3 @@
-%%writefile product.py
 
 def create_product(product_id, name, category, price, quantity):
 
