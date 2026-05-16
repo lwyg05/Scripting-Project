@@ -1,0 +1,2 @@
+transactionid,productid,quantitysold,unitprice,totalamount,date
+T001,P001,2,3000.0,6000.0,2026-05-16
