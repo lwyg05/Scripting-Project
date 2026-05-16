@@ -63,3 +63,17 @@ InventoryManagementSystem/
 │── README.md
 │── inventory.csv
 │── transactions.csv
+
+---
+## How to Run
+1. Clone the repository:
+   git clone https://github.com/your-group-repo-link
+
+2. Navigate to the project folder:
+   cd InventoryManagementSystem
+
+3. Run the program:
+   python main.py
+
+4. Run the unit tests:
+   python testanalytics.py
