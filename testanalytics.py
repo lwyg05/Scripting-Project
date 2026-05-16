@@ -88,4 +88,4 @@ print("\n--- Helper functions ---")
 totals = getsalestotals(transactions_list)
 qtys = getquantitiessold(transactions_list)
 print("Sale totals:", totals)
-print("Quantities sold:", q
+print("Quantities sold:", q)
