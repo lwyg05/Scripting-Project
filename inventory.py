@@ -65,34 +65,34 @@ def list_all_products(inventory):
         display_product(product)
 
 def save_inventory_to_csv(inventory, filename):
-
+## "w" for write mode , newline prevents blank lines
     with open(filename, mode="w", newline="") as file:
         writer = csv.DictWriter(
             file,
-            fieldnames=["id", "name", "category", "price", "quantity"]
+            fieldnames=["id", "name", "category", "price", "quantity"] ## field for header row in CSV 
         )
-        writer.writeheader()
-        writer.writerows(inventory)
+        writer.writeheader() ## creates the header in CSV 
+        writer.writerows(inventory) ## each product dictionary in a row 
 
     print(f"Inventory saved to {filename}")
 
 
-def load_inventory_from_csv(filename):
+def load_inventory_from_csv(filename): ## reads data from inventory csv and creates inventory list 
 
-    inventory = []
+    inventory = [] ## empty list to fill later 
 
     try:
-        with open(filename, mode="r", newline="") as file:
-            reader = csv.DictReader(file)
+        with open(filename, mode="r", newline="") as file: ## open file on read mode 
+            reader = csv.DictReader(file) ## read each row as a dictionary 
 
             for row in reader:
                 row["price"] = float(row["price"])
                 row["quantity"] = int(row["quantity"])
-                inventory.append(row)
+                inventory.append(row) ## add to inventory 
 
         print(f"Inventory loaded from {filename}")
 
-    except FileNotFoundError:
+    except FileNotFoundError: ## handle in case of missing file
         print(f"File '{filename}' not found. Starting with empty inventory.")
 
     return inventory
