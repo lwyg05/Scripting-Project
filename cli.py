@@ -2,6 +2,7 @@ from product import create_product
 from inventory import add_product, list_all_products
 from transactions import recordsale, viewtransactions
 from reports import inventory_summary, low_stock_report, sales_summary, full_report
+from inventory import save_inventory_to_csv
 
 
 def start_menu():
@@ -39,6 +40,7 @@ def start_menu():
             product_id = input("Enter product ID to sell: ")
             quantity = int(input("Enter quantity sold: "))
             recordsale(inventory, transactions, product_id, quantity)
+            save_inventory_to_csv(inventory, "inventory.csv")
 
         elif choice == "4":
             viewtransactions(transactions)
